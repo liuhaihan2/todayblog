@@ -1,0 +1,148 @@
+[
+  {
+    "title" : "我不开心，为什么我不是人",
+    "date" : "2018-05-02",
+    "introduce" : "那是谁操纵了我们呢？那些掌权者是不是完全决定着一切呢？我们在掌权者的眼里是否如蝼蚁一般，生死无关呢？",
+    "txtcontent" : "无论时代怎么发展，社会阶级也许永远都在。这是我们的局限，也是我们的优势。可能每个文明到最后都是一个结局，无中生有，再回到虚无缥缈中去，就这样循环才得以永恒。",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : ["prose"]
+  },
+  {
+    "title" : "记录雪落香杉树",
+    "date" : "2018-03-05",
+    "introduce" : "他全身心地热爱着人类，但是却厌憎绝大多数人",
+    "txtcontent" :"信息时代的到来，意味着上一个时代的远去。不过那个时代远去就远去了，无所谓，因为我热爱时代的更迭，就像热爱人类的进步一样。",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : ["prose"]
+  },
+  {
+    "title" : "那个带你走出来的人，现在去哪了？ ",
+    "date" : "2018-03-16",
+    "introduce" : "然而，长夜漫漫，仿佛没有尽头。其实这长夜本身就是一种错觉，世界上哪有到不了的明天",
+    "txtcontent" :"安娜是如此的不幸又是如此幸运。她看过死亡，那些遍地的尸体，那些让人难以入眠的炮火声，曾经离死神一步之遥。她也总是能感受到生命，在那些燕子的歌声里，在路过的故事里，在他的身上。",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : ["prose"]
+  },
+  {
+    "title" : "世间最完美的复仇，大致也就如此了 ",
+    "date" : "2018-02-19",
+    "introduce" : "这本书的灵感也许有一点是来源于无人生还。",
+    "txtcontent" :"法律总有空白，当一个人的杀人行为能堂而皇之的逃脱法律的审判时，清醒的众人会帮助法律填补这份空白，替法律审判。有罪者难逃审判，逃罪者终不得饶恕。",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : ["prose"]
+  },
+  {
+    "title" : "沉默是最好的归宿 ",
+    "date" : "2018-01-17",
+    "introduce" : "到底是什么样的世界要用7来形容才合适呢？",
+    "txtcontent" :"不能说，也无处诉说，几乎是每个701人的最终状态。老了，宁愿找个无人认识的农村独自生活。从前的经历，难忘也好，精彩也好，痛苦也好，遗憾也好都不能再提及，忌讳莫深。因为这是701工作的最后一个部分，沉默。沉默是最好的归宿。",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : ["prose"]
+  },
+  {
+    "title" : "写给石壁畈的分手信",
+    "date" : "2017-11-30",
+    "introduce" : "我们选择在一起，是各种机缘巧合促成的缘分，时至今日，未曾后悔相见。",
+    "txtcontent" :"该怎么形容你才好，我竟然为此烦恼。后来我发现可能要再过几年才能对你有一个客观的评价。其实你不是一个坏人，就是目的不纯。",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : ["prose"]
+  },
+  {
+    "title" : "啦啦啦",
+    "date" : "2017-04-03T02:46:54.000Z",
+    "txtcontent" : "`啦啦啦啦啦`",
+    "isPublish" : false,
+    "comment_n" : 0,
+    "tags" : ["prose"]
+  },
+  {
+    "title" : "hello world",
+    "date" : "2017-04-25T06:01:29.000Z",
+    "txtcontent" : "你好，世界。",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : [
+      "prose"
+    ]
+  },
+  {
+    "title" : "learing css",
+    "date" : "2017-04-03T02:45:18.000Z",
+    "txtcontent" : "> I'm learing css.",
+    "isPublish" : false,
+    "comment_n" : 0,
+    "tags" : [
+      "css",
+      "html"
+    ]
+  },
+  {
+    "title" : "writing draft",
+    "date" : "2017-04-03T02:45:07.000Z",
+    "txtcontent" : "### I'm writing a draft.",
+    "isPublish" : false,
+    "comment_n" : 0,
+    "tags" : [
+      "draft"
+    ]
+  },
+  {
+    "title" : "learing js",
+    "date" : "2017-04-03T02:45:47.000Z",
+    "txtcontent" : "> I'm learing js.",
+    "isPublish" : false,
+    "comment_n" : 0,
+    "tags" : [
+      "javascript"
+    ]
+  },
+  {
+    "title" : "测试--文章目录",
+    "txtcontent" : "# 一级标题 \n## 二级标题 a\n### 三级标题1\n催眠术！这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。\n### 三级标题2\n催眠术！这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。\n## 二级标题b\n#### 四级标题1\n催眠术！这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。\n\n## 二级标题2.1\n#### 四级标题2\n催眠术！这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。这是一段内容。\n\n\n",
+    "date" : "2017-04-25T02:18:48.000Z",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : [
+      "test"
+    ]
+  },
+  {
+    "title" : "测试--标签去重",
+    "txtcontent" : "## 测试标签去重\n---\n### 文章的schema\n```js\nconst ArticleSchema = new Schema(\n    {\n        aid: { type : Number, index: { unique: true } },\n        title: String,\n        content: String,\n        tags: [String],\n        date: Date,\n        isPublish: Boolean,\n        comment_n: Number\n    },\n    { versionKey: false }\n)\n```\n\n### 标签去重\n主要是使用了mongodb里面的distinct方法，就可以方便把文章schema里的tags合并",
+    "date" : "2017-04-25T05:59:09.000Z",
+    "isPublish" : true,
+    "comment_n" : 0,
+    "tags" : [
+      "html",
+      "css"
+    ]
+  },
+  {
+    "title" : "test--draft",
+    "txtcontent" : "> hi",
+    "date" : "2017-04-25T06:04:12.000Z",
+    "isPublish" : false,
+    "comment_n" : 0,
+    "tags" : [
+      "test"
+    ]
+  },
+  {
+    "comment_n" : 0,
+    "title" : "如何生成文章目录",
+    "txtcontent" : "## 实现的需求\n---\n1. 点击目录对应标题后， 会自动跳到相应的锚点\n2. 不同层次的标题目录左边距不同\n3. 向下滚动后一段距离后，目录相对屏幕固定\n\n## 如何生成文章目录      \n--- \n\n### 重写原本marked解析h标签的格式          \n   \n原本marked解析h标签会将除了英文和数字以外的字符替换为'-'，包括中文字符，如果用中文写h标签，这样生成的锚点和id都为'-'字符，除非用英文数字写标题，所以需要对h标签的格式重写。\n\n通过设置`renderer.heading`后,  `marked`解析h标签的格式可以重写。具体可以看/src/components/back/editor.vue\n\n```html\n<h1>一级标题</h1>\n\n<!--转换为下面这种格式-->\n\n<a href=\"#一级标题\" class=\"hashTitle\" data-scroll>\n    <h1 id=\"一级标题\">一级标题</h1>\n</a>\n```\n上面的data-scroll是使smooth-scroll，可以是跳转锚点平滑滚动\n\n### 获取所有h标签生成目录数组\n首先将从后台获取到的内容用marked解析成html字符串，再用正则表达式取出h标签中的重要信息，h标签的等级和id值，然后通过一点简单的算法算出不同标签对应的层级， 不同的层级在目录里的左边距不同，最后push到目录list数组中。下面是目录数组的格式。\n```js\nlet list = [\n    {\n        level: 1,\n        size: 2,\n        content: '二级标题'\n    },\n    {\n        level: 2,\n        size: 3,\n        content: '三级标题'\n    }\n];\n```\n具体的算法可以看/src/store/getters.js",
+    "date" : "2017-04-25T06:23:16.000Z",
+    "isPublish" : true,
+    "tags" : [
+      "模块介绍",
+      "marked.js"
+    ]
+  }
+
+]
