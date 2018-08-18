@@ -65,14 +65,14 @@
         created(){
           // this.getOneArticle(this.id);
           //我做出来的修改
-          this.getOneArticle(this.id).then(function(res){
+          var self = this;
+          console.log(self.id)
+          this.getOneArticle(self.id).then(function(res){
               console.log(res);
               var oneCompleteArticle = localStorage.setItem("completeArticle",res)
               console.log(oneCompleteArticle)
-              dispatch('getArticleId',oneCompleteArticle)
-              this.date = this.oneCompleteArticle.date.slice(0,10);
-
-
+              self.$store.dispatch('getArticleId',res)
+              self.date = self.oneCompleteArticle.date.slice(0,10);
           })
           console.log(this.$route.params.from)
         },
