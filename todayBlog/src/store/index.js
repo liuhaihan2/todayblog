@@ -201,7 +201,8 @@ const store = new Vuex.Store({
       if(id){
         console.log("有id")
         return 
-          axios.get('http://localhost:3030/articles/getOneArticle/' + id).then((res) => {
+          Vue.http.get('http://localhost:3030/articles/getOneArticle/' + id).then((res) => {
+              console.log("从后台获取文章信息",res.data);
               commit('setOneArticle',res.data);
           }).catch((err) => { console.log(err) })
         
