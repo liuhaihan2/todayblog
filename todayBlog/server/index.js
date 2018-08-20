@@ -117,14 +117,15 @@ app.get('/articles/delArticles/:_id',function(req,res){
 
 //得到一篇文章
 app.get('/articles/getOneArticle/:id',function(req,res){
+  console.log("调用了后台得到一篇文章的接口");
   // const obj = JSON.parse(req.query.obj);
-  console.log(req.params)
+  // console.log(req.params)
   db.article.findOne({_id: req.params.id},(err, doc) => {
     if (err) {
       console.log(err)
     } else {
-      console.log(doc)
-      res.status(200).send(doc)
+      console.log("得到的这篇文章：",doc)
+      res.status(200).json(doc)
     }
   })
 })

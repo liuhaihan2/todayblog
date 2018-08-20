@@ -13,7 +13,7 @@
     </div>
 
     <!--内容显示区域-->
-    <div class="message row">
+    <!-- <div class="message row">
       <div class="col-md-3 article" v-for="(item,index) in fenyeArticles">
         <div class="articlechild">
           <span class="text-success">创建时间:{{item.date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
@@ -26,7 +26,28 @@
           <router-link :to="{name:'Complete', params:{_id: item._id,from: 'message'}}" tag="button" class="btn">更多</router-link>
         </div>
       </div>
-    </div>
+    </div> -->
+    <!-- 内容展示区域 瀑布流 -->
+    <waterfall :line-gap = "200" :watch="fenyeArticles">
+      <waterfall-slot
+        v-for="(item,index) in fenyeArticles"
+        :width="item.width"
+        :height="item.height"
+        :order="index"
+        :key="item._id"
+      >
+        <div class="articlechild">
+          <span class="text-success">创建时间:{{item.date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+          <span class="text-success"  ><span><i class="iconfont icon-huifu"></i>{{item.comment_n}}</span>
+  评论人数</span>
+          <h3 style="color:#f5917b">{{item.title}}</h3>
+          <p class="text-success text-left">{{item.introduce}}</p>
+          <img :src="item.src" alt="">
+          <p class="text-muted text-left" style="width:90%;overflow:hidden;height:100px;margin:10px auto;display:block">{{item.txtcontent}}</p>
+          <router-link :to="{name:'Complete', params:{_id: item._id,from: 'message'}}" tag="button" class="btn">更多</router-link>
+        </div>
+      </waterfall-slot>
+    </waterfall>
 
     <div class="row"><button class="btn more" >加载更多</button></div>
 
@@ -38,6 +59,8 @@
   import store from '@/store/index'
   import {mapState,mapMutations,mapActions,mapGetters} from 'vuex'
   import $ from 'jquery'
+  import Waterfall from 'vue-waterfall/lib/waterfall'
+  import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
 
     export default {
         name: "Message",
@@ -67,6 +90,10 @@
         },
         mounted(){
           this.haha();
+        },
+        components: {
+          Waterfall,
+          WaterfallSlot
         },
         store
 
