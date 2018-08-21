@@ -6,6 +6,7 @@ const mail = require('./mail.js');
 const db = require('./db.js');
 const path = require('path');
 const ueditor = require("ueditor")
+const confirmation = require("../server/middle")
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }))
