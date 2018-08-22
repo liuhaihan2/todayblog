@@ -5,13 +5,16 @@ const bodyParser = require('body-parser');
 const mail = require('./mail.js');
 const db = require('./db.js');
 const path = require('path');
-const ueditor = require("ueditor")
+const ueditor = require("ueditor");
+const jwt = require("jsonwebtoken");
+const secret = require("../config").jwt;
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use("/ueditor/ue", ueditor(path.join(__dirname, 'public'), function(req, res, next) {
-// ueditor 客户发起上传图片请求
+
+  // ueditor 客户发起上传图片请求
   if(req.query.action === 'uploadimage'){
     var foo = req.ueditor;
     var date = new Date();
@@ -145,6 +148,13 @@ app.post('/article/save',function(req,res){
   new db.article(article).save()
   res.status(200).send('成功保存新文章')
 })
+//创建token
+const createToken = (id,name) => {
+  return jwt.sign({
+    id,
+    name
+  },secret.cert,{expiresIn: '7d'});//expiresIn 授权时限 60*60*24就是24小时
+}
 
 //登录
 app.post('/sendLogin',function(req,res){
@@ -158,11 +168,14 @@ app.post('/sendLogin',function(req,res){
       }else if(doc){
          if(doc.password === '123456'){
            console.log('hi,old friend')
-           res.status(200).send({
-             name: doc.name,
-             id: doc._id,
-             password: doc.password
-           })
+           const token = createToken(doc._id,doc.name);
+           var info = {
+            name: doc.name,
+            id: doc._id,
+            token
+          };
+          console.log("token",info);
+           res.status(200).send(info)
          }
       }else{
         console.log("用户列表里没有您")
