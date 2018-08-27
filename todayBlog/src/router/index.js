@@ -1,15 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
-import HelloWorld from '@/components/HelloWorld'
-import Message from '@/components/Message'
-import Habit from '@/components/Habit'
-import Connect from '@/components/Connect'
-import Login from '@/components/Login'
-import Complete from '@/components/Complete'
-import manage from '@/components/back/manage'
-import articles from '@/components/back/articles'
-import create from '@/components/back/create'
+// import Index from '@/components/Index'
+// import HelloWorld from '@/components/HelloWorld'
+// import Message from '@/components/Message'
+// import Habit from '@/components/Habit'
+// import Connect from '@/components/Connect'
+// import Login from '@/components/Login'
+// import Complete from '@/components/Complete'
+// import manage from '@/components/back/manage'
+// import articles from '@/components/back/articles'
+// import create from '@/components/back/create'
+const Index = () => import('@/components/Index')
+const Message = () => import('@/components/Message')
+const Habit = () => import('@/components/Habit')
+const Connect = () => import('@/components/Connect')
+const Login = () => import('@/components/Login')
+const Complete = () => import('@/components/Complete')
+const manage = () => import('@/components/manage')
+const articles = () => import('@/components/articles')
+const create = () => import('@/components/create')
+
+
 
 
 Vue.use(Router)
