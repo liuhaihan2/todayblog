@@ -50,6 +50,7 @@
                    password: this.password
                 }).then((res) => {
                   if(res.status === 200){
+                    console.log(res.data);
                     this.setuser("comein");
                     this.$router.push({name:'manage',params:{name: res.data.name, admin: true}})
                   }

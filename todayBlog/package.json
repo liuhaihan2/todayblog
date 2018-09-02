@@ -13,12 +13,14 @@
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.1.6",
     "nodemailer": "^4.6.7",
     "nodemailer-smtp-transport": "^2.7.4",
     "ueditor": "^1.2.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-waterfall": "^1.0.6",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -52,6 +54,7 @@
     "sass-loader": "^7.0.3",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    "socks": "^2.2.1",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",

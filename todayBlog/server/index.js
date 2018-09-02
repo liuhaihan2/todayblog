@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const mail = require('./mail.js');
 const db = require('./db.js');
 const path = require('path');
-const ueditor = require("ueditor");
+const ueditor = require("ueditor")
+const confirmation = require("../server/middle")
 const jwt = require("jsonwebtoken");
 const secret = require("../config").jwt;
 
@@ -99,7 +100,7 @@ app.get('/articles',function(req,res){
 
 //删除某篇文章
 //axios.delete('http://localhost:3030/articles/delArticles' + obj._id)
-app.get('/articles/delArticles/:_id',function(req,res){
+app.get('/articles/delArticles/:_id',confirmation,function(req,res){
   console.log('调用了后台的articles/delArticles')
   db.article.remove({_id: req.params._id}, (err, data) => {
     if (err) {

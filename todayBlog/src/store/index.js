@@ -124,8 +124,8 @@ const store = new Vuex.Store({
     },
     //发送登录信息到后台接口
     sendLogin: function({commit},obj){
-        console.log(obj);
-        return axios.post('http://localhost:3030/sendLogin',obj)
+        console.log("发送到后台的数据",obj);
+        return axios.post('http://localhost:3030/sendLogin',obj);
 
     },
     //我未分页之前写的
@@ -184,7 +184,14 @@ const store = new Vuex.Store({
     delArticle: function({dispatch},obj){
       console.log('调用了delArticle函数')
       console.log(obj._id)
-      axios.get('http://localhost:3030/articles/delArticles/' + obj._id).then((res) => {
+      return axios.get(
+        'http://localhost:3030/articles/delArticles/' + obj._id,
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+          }
+        }
+      ).then((res) => {
           console.log(res.data)
       }).then((res) => {
         console.log("执行了then")
