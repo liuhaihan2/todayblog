@@ -20,7 +20,8 @@ const store = new Vuex.Store({
     page: 1,
     tags: ['js','css','html','prose'],
     oneCompleteArticle:{},
-    articleId: null
+    articleId: null,
+    token: null
   },
   getters: {
     getHomeMessage: function(state){
@@ -109,13 +110,16 @@ const store = new Vuex.Store({
     setArticleId: function(state,id){
       state.articleId = id;
       console.log(state.articleId)
+    },
+    setToken: function(state,token){
+      state.token = token;
     }
-
   },
   actions: {
     //设置用户是否登录
-    setuser:function({commit},info){
-      commit('setuser',info)
+    setToken: function({commit},token){
+      console.log("setToken");
+      commit('setToken',token)
     },
     //发送邮件到后台接口
     sendEmail: function({commit},obj){

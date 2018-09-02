@@ -1,8 +1,7 @@
 <template>
 
-  <form role="form" class="form-horizontal " id="form1">
+  <!-- <form role="form" class="form-horizontal " id="form1">
     <fieldset>
-      <!--文章题目--><!--一句话介绍-->
       <div class="form-group">
         <label class="col-sm-2 control-label" for="title">文章名:</label>
         <div class="col-sm-4">
@@ -17,7 +16,6 @@
       </div>
     </fieldset>
     <fieldset>
-      <!--tag复选按钮  内容-->
       <div class="form-group">
         <label class="col-sm-2 control-label">选择文章类型:</label>
         <div class="checkbox checkbox-success checkbox-inline col-md-1" id="tags" v-for="(item,index) in tags">
@@ -40,7 +38,10 @@
         {{sendFlag ? "正在提交" : "保存文章"}}
       </button>
     </fieldset>
-  </form>
+  </form> -->
+  <div id="editor">
+
+  </div>
 
 
 
@@ -48,12 +49,19 @@
 </template>
 
 <script>
-  import '../../../static/public/ueditor/ueditor.config';
-  import '../../../static/public/ueditor/ueditor.all.min.js';
-  import '../../../static/public/ueditor/lang/zh-cn/zh-cn';
+  import  '../../assets/js/highlight.pack.js'
+  import WangEditor from 'wangeditor'
   import axios from 'axios'
   import store from '@/store/index'
   import {mapState,mapMutations,mapActions,mapGetters} from 'vuex'
+  import hljs from 'highlight.js'
+
+ $(function(){
+          $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+          });
+  
 
     export default {
         name: "user",
@@ -71,30 +79,23 @@
         computed:{
           ...mapState(['tags'])
         },
-        mounted () {
-            const _this = this;
-            this.ue = UE.getEditor('ueditor', { BaseUrl: '',
-              UEDITOR_HOME_URL: 'static/public/ueditor/',
-              toolbars: [
-                ['fullscreen', 'source', 'undo', 'redo'],
-                [
-                  'bold','insertcode', 'fontfamily', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc'
-                ]
-              ]
-            })
-          this.ue.ready(function(){
-            _this.ue.setHeight(400)
-            var html = '<p>你好</p>'
-            _this.ue.setContent(html)
-          })
-            // console.log(this.ue.setHeight)
-            // ue.UE.ready(function(){
-            //   console.log('ue已经准备好')
-            //   ue.setContent("你好")
-            // })
-          // this.ue.addListener("ready", function () {
-          //   this.ue.setHeight(1000); // 确保UE加载完成后，放入内容。
-          // });
+        mounted() {
+            var editor = new WangEditor("#editor");
+            editor.customConfig.menus = [
+                'head',
+                'bold',
+                'italic',
+                'underline',
+                'foreColor',
+                'image', 
+                'code', 
+                'undo', 
+                'fontSize',  // 字号
+            ]
+            editor.create()
+        },
+        created(){
+         
         },
         methods: {
           ...mapActions(['saveArticle']),
@@ -130,10 +131,11 @@
 </script>
 
 <style scoped>
+@import '../../assets/css/github.css';
   button{
   width:100px;
   display:inline-block;
-  float:bottom;
+  /* float:bottom; */
 }
 
   .btn{
@@ -146,7 +148,8 @@
     transition: 0.4s;
 
   }
-  .form-group input{
+  #editor{
     border:1px solid mediumpurple;
+    text-align: left;
   }
 </style>
