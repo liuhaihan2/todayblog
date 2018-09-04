@@ -1,13 +1,13 @@
 <template>
     <div class="container">
       <div class="row">
-        <h1>{{oneCompleteArticle.title}}</h1>
+        <h1>{{articleInfo.title}}</h1>
         <p style="margin-top:30px;"><i class="iconfont icon-shijian"></i>{{date}}</p>
-        <img :src="oneCompleteArticle.src" alt="">
+        <img :src="articleInfo.src" alt="">
       </div>
       <div class="row">
-        <p class="articleIntroduce text-muted">{{oneCompleteArticle.introduce}}</p>
-        <div class="articleContent text-left" v-html="oneCompleteArticle.txtcontent"></div>
+        <p class="articleIntroduce text-muted">{{articleInfo.introduce}}</p>
+        <div class="articleContent text-left" v-html="articleInfo.txtcontent"></div>
       </div>
       <div class="list">
         <span><a id="back-to-top" @click="goTop"><i class="iconfont icon-huojian" style="font-size:60px;"></i> </a> </span>
@@ -39,7 +39,8 @@
           return {
             id: this.$route.params._id,
             from: this.$route.params.from,
-            date: null
+            date: null,
+            articleInfo:null
           }
         },
         computed: {
@@ -63,16 +64,12 @@
           }
         },
         created(){
-          // this.getOneArticle(this.id);
-          //我做出来的修改
           var self = this;
           console.log(self.id)
-          this.getOneArticle(self.id).then(function(res){
-              console.log(res);
-              var oneCompleteArticle = localStorage.setItem("completeArticle",res)
-              console.log(oneCompleteArticle)
-              self.$store.dispatch('getArticleId',res)
-              self.date = self.oneCompleteArticle.date.slice(0,10);
+          this.getOneArticle(self.id)
+          .then(function(){
+              self.articleInfo = JSON.parse(localStorage.getItem("articleInfo"));
+              self.date = self.articleInfo.date.slice(0,10);
           })
           console.log(this.$route.params.from)
         },

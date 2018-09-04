@@ -31,12 +31,7 @@
           }
         },
         created(){
-          var info = localStorage.getItem('isLogin')
-          console.log(info);
-          if(info === "comeout"){
-            this.$router.push({name:'Login'})
-          }
-          console.log("断掉了吗");
+  
         },
       store
     }

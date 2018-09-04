@@ -20,7 +20,8 @@ const store = new Vuex.Store({
     page: 1,
     tags: ['js','css','html','prose'],
     oneCompleteArticle:{},
-    articleId: null
+    articleId: null,
+    token: null
   },
   getters: {
     getHomeMessage: function(state){
@@ -109,13 +110,16 @@ const store = new Vuex.Store({
     setArticleId: function(state,id){
       state.articleId = id;
       console.log(state.articleId)
+    },
+    setToken: function(state,token){
+      state.token = token;
     }
-
   },
   actions: {
     //设置用户是否登录
-    setuser:function({commit},info){
-      commit('setuser',info)
+    setToken: function({commit},token){
+      console.log("setToken");
+      commit('setToken',token)
     },
     //发送邮件到后台接口
     sendEmail: function({commit},obj){
@@ -124,8 +128,8 @@ const store = new Vuex.Store({
     },
     //发送登录信息到后台接口
     sendLogin: function({commit},obj){
-        console.log(obj);
-        return axios.post('http://localhost:3030/sendLogin',obj)
+        console.log("发送到后台的数据",obj);
+        return axios.post('http://localhost:3030/sendLogin',obj);
 
     },
     //我未分页之前写的
@@ -184,7 +188,14 @@ const store = new Vuex.Store({
     delArticle: function({dispatch},obj){
       console.log('调用了delArticle函数')
       console.log(obj._id)
-      axios.get('http://localhost:3030/articles/delArticles/' + obj._id).then((res) => {
+      return axios.get(
+        'http://localhost:3030/articles/delArticles/' + obj._id,
+        {
+          headers: {
+            'Authorization': 'Bearer ' + token,
+          }
+        }
+      ).then((res) => {
           console.log(res.data)
       }).then((res) => {
         console.log("执行了then")
@@ -200,10 +211,14 @@ const store = new Vuex.Store({
       console.log("文章id：",id);
       if(id){
         console.log("有id")
-        return 
-          Vue.http.get('http://localhost:3030/articles/getOneArticle/' + id).then((res) => {
+        return axios.get('http://localhost:3030/articles/getOneArticle/' + id).then((res) => {
               console.log("从后台获取文章信息",res.data);
-              commit('setOneArticle',res.data);
+              // commit('setOneArticle',res.data);
+              // var info = JSON.parse(res.data);
+              var info = JSON.stringify(res.data);
+              localStorage.setItem("articleInfo",info)
+              var aa = localStorage.getItem("articleInfo");
+              console.log("设置articleInfo完毕",aa);
           }).catch((err) => { console.log(err) })
         
       }else{

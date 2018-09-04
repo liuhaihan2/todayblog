@@ -34,7 +34,7 @@
           }
         },
         methods:{
-          ...mapActions(['sendLogin','setuser']),
+          ...mapActions(['sendLogin','setToken']),
           login:function(){
             this.sendFlag = true;
 
@@ -50,7 +50,9 @@
                    password: this.password
                 }).then((res) => {
                   if(res.status === 200){
-                    this.setuser("comein");
+                    console.log(res.data);
+                    // this.setToken(res.data.token);
+                    localStorage.setItem('token',res.data.token);
                     this.$router.push({name:'manage',params:{name: res.data.name, admin: true}})
                   }
                 }).catch((err) => {
