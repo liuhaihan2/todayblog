@@ -207,8 +207,6 @@ const store = new Vuex.Store({
           }).catch((err) => { console.log(err) })
         
       }else{
-        console.log("刷新了吧你")
-        console.log("刷新就从")
         // axios.get('http://localhost:3030/articles/getOneArticle/' + state.articleId).then((res) => {
         //   console.log(res.data);
         //   commit('setOneArticle',res.data);
