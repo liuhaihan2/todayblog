@@ -26,11 +26,14 @@ var  articleSchema = new Schema({
 })
 //评论集合
 var commentSchema = new Schema({
-  data: Date,
-  articleId: Number,
-  content: String,
-  address: String,
-  name: String,
+  articleId: Number,//被评论文章
+  content: String,//评论内容
+  address: String,//评论者的邮箱地址
+  nickName: String,//评论者的昵称
+  createTime: Date,//评论的创建时间
+  portraitSrc: String,//评论者头像  可以先设置一个假的
+  replyItem: String,//如果是一条回复评论，这个就是回复的对象
+  //这个不对，逻辑不对
 })
 //用户结合
 var userSchema = new Schema({

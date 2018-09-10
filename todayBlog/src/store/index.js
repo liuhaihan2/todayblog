@@ -14,14 +14,12 @@ const store = new Vuex.Store({
     searchArticles:[],
     //记录分页每次新申请的八个数据
     fenyeArticles:[],
-    //我不知道我为什么要记录所有的数据
-    //记录已经申请到的所有数据
-    // allArticles:[],
     page: 1,
     tags: ['js','css','html','prose'],
     oneCompleteArticle:{},
     articleId: null,
-    token: null
+    token: null,
+    allComments: []//谋篇文章的所有评论
   },
   getters: {
     getHomeMessage: function(state){
@@ -113,6 +111,10 @@ const store = new Vuex.Store({
     },
     setToken: function(state,token){
       state.token = token;
+    },
+    setArticleComment: function(state,comments){
+      //这里的comments传过来的参数是数组吗
+      state.allComments = comments
     }
   },
   actions: {
@@ -244,19 +246,15 @@ const store = new Vuex.Store({
         // commit('saveArticle')
         alert(res.data);
       })
+    },
+    //得到某篇文章的所有的评论
+    getArticleComment({commit},obj){
+      console.log('调用了getArticleComment');
+      return axios.get('http://localhost:3030/article/comment' + id).then((res) => {
+        console.log("后台传过来的所有的评论",res.data);
+        commit('setArticleComment',res.data);
+      })
     }
-
-    // //查询某篇文章  我还是把这个查询合并了
-    // //查询用的时候  this.setAllArticles({title: this.text, page: page, limit: 8,actions: 'nochange'})
-    // searchArticles({commit},obj){
-    //   console.log('调用了searchArticles函数')
-    //   axios.get('http://localhost:3030/article/search/' + obj.title).then((res) => {
-    //     console.log(res.data);
-    //     const object = {articles: res.data,obj : obj}
-    //     commit('setAllArticles',object)
-    //   })
-    // }
-
 
   }
 });
