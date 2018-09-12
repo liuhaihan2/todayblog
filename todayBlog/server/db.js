@@ -32,8 +32,6 @@ var commentSchema = new Schema({
   nickName: String,//评论者的昵称
   createTime: Date,//评论的创建时间
   portraitSrc: String,//评论者头像  可以先设置一个假的
-  replyItem: String,//如果是一条回复评论，这个就是回复的对象
-  //这个不对，逻辑不对
 })
 //用户结合
 var userSchema = new Schema({

@@ -13,6 +13,8 @@
         <span><a id="back-to-top" @click="goTop"><i class="iconfont icon-huojian" style="font-size:60px;"></i> </a> </span>
         <span><a class="goHome" href="javascript:;" @click="goHome"><i class="iconfont icon-fanhui" style="font-size:60px;"></i></a></span>
       </div>
+      <!-- 评论 -->
+      <article-Comment :articleId="id"></article-Comment>
     </div>
 </template>
 
@@ -21,6 +23,7 @@
   import {mapState,mapMutations,mapActions,mapGetters} from 'vuex'
   import $ from 'jquery'
   import axios from 'axios'
+  import articleComment from 'articleComment'
   
 
   $(function(){
@@ -46,6 +49,9 @@
         computed: {
           ...mapState(['oneCompleteArticle'])
         },
+        components: {
+          articleComment,
+        },
         methods: {
           ...mapActions(['getOneArticle']),
           goHome: function(){
@@ -66,7 +72,7 @@
         created(){
           var self = this;
           console.log(self.id)
-          this.getOneArticle(self.id)
+          this.getOneArticle(self.id)//这里存在了本地
           .then(function(){
               self.articleInfo = JSON.parse(localStorage.getItem("articleInfo"));
               self.date = self.articleInfo.date.slice(0,10);

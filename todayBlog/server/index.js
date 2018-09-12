@@ -156,7 +156,6 @@ const createToken = (id,name) => {
     name
   },secret.cert,{expiresIn: '7d'});//expiresIn 授权时限 60*60*24就是24小时
 }
-
 //登录
 app.post('/sendLogin',function(req,res){
   console.log("调用了后台的/sendLogin的路由回调函数");
@@ -185,6 +184,24 @@ app.post('/sendLogin',function(req,res){
     })
   console.log("判断结束")
 })
-
+//获取谋篇文章的所有评论
+app.get('article/comment',function(req,res){
+  console.log('调用了后台的article/comment接口',req.params.id);
+  db.comment.find({articleId: req.params.id},'nikeName createTime content portraitSrc').exec().then((data) => {
+    res.status(200).send(data);
+  }).catch((err) => {
+    res.status(400).send("查询失败");
+  })
+})
+//新建评论,并邮件通知我
+app.get('article/createComment',function(req,res){
+  console.log('调用了后台的article/createComment接口',req.body.nickName);
+  db.comment.findOne({nickName: req.body.nickName, articleId: req.body.articleId},(err,doc) => {
+    if(doc && doc.address !== req.body.address){
+        res.status(403).send("换一个昵称吧");
+    }
+  })
+  db.comment.save()
+})
 app.listen(3030);
 console.log("success");

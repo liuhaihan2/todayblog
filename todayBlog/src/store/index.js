@@ -50,11 +50,7 @@ const store = new Vuex.Store({
 
     //设置用户是否登录
     setuser:function(state,info){
-      // window.localStorage.setItem('password', user.password)
-      // window.localStorage.setItem('userName', user.name)
       localStorage.setItem('isLogin',info);
-      
-      // state.userInfo = info
     },
     //设置文章信息
     setAllArticles:function(state,object){
@@ -248,14 +244,22 @@ const store = new Vuex.Store({
       })
     },
     //得到某篇文章的所有的评论
-    getArticleComment({commit},obj){
+    getArticleComment({commit},id){
       console.log('调用了getArticleComment');
       return axios.get('http://localhost:3030/article/comment' + id).then((res) => {
         console.log("后台传过来的所有的评论",res.data);
         commit('setArticleComment',res.data);
       })
+    },
+    //新建评论
+    createComment({commit},obj){
+      console.log("调用了createComment");
+      return axios.post('http://localhost:3030/article/createComment',obj).then((res) => {
+        console.log("存储评论成功");
+      }).catch((err) => {
+        console.log(err);
+      })
     }
-
   }
 });
 
