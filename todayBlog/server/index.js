@@ -196,12 +196,34 @@ app.get('article/comment',function(req,res){
 //新建评论,并邮件通知我
 app.get('article/createComment',function(req,res){
   console.log('调用了后台的article/createComment接口',req.body.nickName);
+  let comment = {
+    nickName: req.body.nickName,
+    address: req.body.address,
+    content: req.body.content,
+    createTime: new Date(),
+    portraitSrc: 'visitor',
+    articleId: req.body.articleId
+  }
+  new db.comment(comment).save().then(()=>{
+    let reg = /^@(.+):/;
+    //如果是回复性评论
+    if(reg.test(comment.content)){
+        const replyItem = reg.exec(comment)[1];//TODO: 测试是否能得到replyItem昵称
+        mail.send('18843601932@qq.com','有人找你',html,res)
+    }
+  });
+})
+//验证  一个邮箱不能注册两个评论者
+app.post('/article/testComment',function(req,res){
+  console.log('调用了后台的/article/testComment接口',req.body.nickName);
   db.comment.findOne({nickName: req.body.nickName, articleId: req.body.articleId},(err,doc) => {
     if(doc && doc.address !== req.body.address){
         res.status(403).send("换一个昵称吧");
+    }else if(!doc || doc.address === req.body.address){
+        res.status(200);
     }
   })
-  db.comment.save()
 })
+
 app.listen(3030);
 console.log("success");

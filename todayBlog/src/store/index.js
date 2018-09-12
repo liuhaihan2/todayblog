@@ -251,14 +251,27 @@ const store = new Vuex.Store({
         commit('setArticleComment',res.data);
       })
     },
+    //测试评论者是否邮箱唯一性
+    testComment(obj){
+      console.log('调用了testComment',obj);
+      return Promise((resolve,reject) => {
+        axios.post('http://localhost:3030/article/testComment',obj).then((res) => {
+          console.log("验证成功");
+        }).catch((err) => {
+          alert(err);
+        });
+      })
+    },
     //新建评论
     createComment({commit},obj){
       console.log("调用了createComment");
-      return axios.post('http://localhost:3030/article/createComment',obj).then((res) => {
-        console.log("存储评论成功");
-      }).catch((err) => {
-        console.log(err);
-      })
+      return Promise((resolve,reject) => {
+        axios.post('http://localhost:3030/article/createComment',obj).then((res) => {
+          console.log("存储评论成功");
+        }).catch((err) => {
+          console.log(err);
+        })
+      }) 
     }
   }
 });
