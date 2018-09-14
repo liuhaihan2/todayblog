@@ -4,8 +4,7 @@
       <textarea name="newComment" cols="30" rows="10" placeholder="评论这篇文章" v-model="content"></textarea>
       <input type="text" placeholder="昵称" v-model="nickName">
       <input type="text" placeholder="电子邮箱" v-model="address">
-      <button @click="submmitComment">提交评论</button>
-      <!-- TODO: 提交之后按钮禁止点击 -->
+      <button @click="submmitComment" :disabled="control">提交评论</button>
     </div>
     <div class="allComment">
       <!-- 评论按照时间顺序来，倒序 -->
@@ -53,6 +52,7 @@ export default {
       address: null,//发布评论里面的 邮箱地址
       imgName: "visitor",
       showReplyDialog: false,
+      control: false,
     }
   },
   prop: ["articleId"]
@@ -64,6 +64,7 @@ export default {
     ...mapActions(['getArticleComment','createComment']),//TODO:创建createComment函数
     //可以试验一下async函数
     submmitComment(){
+      this.control = true;
       this.showReplyDialog = false;
       //判断是否都填入正确
       const reg = /^[\w_-]+@[\w_-]+\.[\w\\.]+$/
@@ -89,6 +90,7 @@ export default {
             //发新评论给后台
             this.createComment(newComment).then(() => {
               this.getArticleComment(this.articleId);
+              this.control = false;
             })
         })
         
