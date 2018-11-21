@@ -104,7 +104,7 @@
   .article{
     /*border:1px solid lightgray;*/
     padding:20px;
-    border-radius:12px;
+    border-radius:15px;
     overflow: hidden;
   }
   .articlechild{
