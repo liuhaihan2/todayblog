@@ -103,7 +103,7 @@
 <style scoped>
   .article{
     /*border:1px solid lightgray;*/
-    padding:25px;
+    padding:20px;
     border-radius:15px;
     overflow: hidden;
   }
