@@ -114,7 +114,7 @@
   }
   .more{
     width:85%;
-    margin:150px auto;
+    margin:155px auto;
     display: block;
     height:80px;
     font-size:26px;
